@@ -6,12 +6,11 @@ import az.ingress.carapp.dto.CarResponseDto;
 import java.util.List;
 
 public interface CarServiceImpl {
-    List<CarResponseDto> findAll();
-
-    void createCar(CarRequestDto carRequestDto);
+     void createCar(CarRequestDto carRequestDto);
 
     CarResponseDto getCarById(Long id);
-    public void update(Long id,CarRequestDto carRequestDto);
+    List<CarResponseDto> findAll();
+     void update(Long id, CarRequestDto carRequestDto);
 
-    void delete(Long id);
+     void delete(Long id);
 }

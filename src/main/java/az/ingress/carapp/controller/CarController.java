@@ -16,25 +16,24 @@ public class CarController {
   private final CarServiceImpl carServiceimpl;
   @GetMapping
   public List<CarResponseDto> findAll() {
-      return carServiceimpl.findAll();
+    return carServiceimpl.findAll();
   }
-    @PostMapping()
+  @PostMapping()
   public void create(@RequestBody CarRequestDto carRequestDto){
-      carServiceimpl.createCar(carRequestDto);
-    }
+    carServiceimpl.createCar(carRequestDto);
+  }
 
-    @GetMapping("/{id}")
-    public CarResponseDto getCarById(@PathVariable Long id){
-        return carServiceimpl.getCarById(id);
+  @GetMapping("/{id}")
+  public CarResponseDto getCarById(@PathVariable Long id){
+    return carServiceimpl.getCarById(id);
 
-    }
-    @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody CarRequestDto carRequestDto){
-      carServiceimpl.update(id,carRequestDto);
-    }
-    @DeleteMapping("/{id}")
+  }
+  @PutMapping("/{id}")
+  public void update(@PathVariable Long id, @RequestBody CarRequestDto carRequestDto){
+    carServiceimpl.update(id,carRequestDto);
+  }
+  @DeleteMapping("/{id}")
   public void delete(@PathVariable Long id){
     carServiceimpl.delete(id);
-    }
+  }
 }
-

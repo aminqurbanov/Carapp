@@ -7,7 +7,6 @@ import az.ingress.carapp.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +14,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class CarService implements CarServiceImpl {
+
 
     private final ModelMapper modelMapper;
     private final CarRepository carRepository;
