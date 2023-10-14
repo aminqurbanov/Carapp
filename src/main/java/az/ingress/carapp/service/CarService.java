@@ -25,8 +25,8 @@ public class CarService implements CarServiceImpl {
                 .stream()
                 .map(car -> modelMapper.map(car, CarResponseDto.class))
                 .collect(Collectors.toList());
-
     }
+
     @Override
     public void createCar(CarRequestDto carRequestDto) {
         Car car = modelMapper.map(carRequestDto,Car.class);
@@ -50,7 +50,7 @@ public class CarService implements CarServiceImpl {
         carRepository.save(car);
     }
     public void delete(Long id) {
-        carRepository.getById(id);
+        carRepository.deleteById(id);
     }
 
 }
