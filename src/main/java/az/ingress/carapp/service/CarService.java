@@ -15,11 +15,11 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CarService implements CarServiceImpl {
 
-
     private final ModelMapper modelMapper;
     private final CarRepository carRepository;
+
     @Override
-    public List<CarResponseDto> findAll(){
+    public List<CarResponseDto> findAll() {
         return carRepository
                 .findAll()
                 .stream()
@@ -29,19 +29,19 @@ public class CarService implements CarServiceImpl {
 
     @Override
     public void createCar(CarRequestDto carRequestDto) {
-        Car car = modelMapper.map(carRequestDto,Car.class);
+        Car car = modelMapper.map(carRequestDto, Car.class);
         carRepository.save(car);
-
-
     }
+
     @Override
-    public CarResponseDto getCarById(Long id){
-        Car car = carRepository.findById(id).orElseThrow(()->new RuntimeException());
+    public CarResponseDto getCarById(Long id) {
+        Car car = carRepository.findById(id).orElseThrow(() -> new RuntimeException());
         return modelMapper.map(car, CarResponseDto.class);
     }
+
     @Override
-    public void update(Long id,CarRequestDto carRequestDto){
-        Car car =carRepository.findById(id).get();
+    public void update(Long id, CarRequestDto carRequestDto) {
+        Car car = carRepository.findById(id).get();
         car.setCarColor(carRequestDto.getCarColor());
         car.setYear(carRequestDto.getYear());
         car.setEngine(carRequestDto.getEngine());
@@ -49,9 +49,8 @@ public class CarService implements CarServiceImpl {
         car.setModel(carRequestDto.getModel());
         carRepository.save(car);
     }
+
     public void delete(Long id) {
         carRepository.deleteById(id);
     }
-
 }
-

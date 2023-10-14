@@ -13,27 +13,30 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CarController {
 
-  private final CarServiceImpl carServiceimpl;
+  private final CarServiceImpl carService;
+
   @GetMapping
   public List<CarResponseDto> findAll() {
-    return carServiceimpl.findAll();
+    return carService.findAll();
   }
-  @PostMapping()
-  public void create(@RequestBody CarRequestDto carRequestDto){
-    carServiceimpl.createCar(carRequestDto);
+
+  @PostMapping
+  public void create(@RequestBody CarRequestDto carRequestDto) {
+    carService.createCar(carRequestDto);
   }
 
   @GetMapping("/{id}")
-  public CarResponseDto getCarById(@PathVariable Long id){
-    return carServiceimpl.getCarById(id);
+  public CarResponseDto getCarById(@PathVariable Long id) {
+    return carService.getCarById(id);
+  }
 
-  }
   @PutMapping("/{id}")
-  public void update(@PathVariable Long id, @RequestBody CarRequestDto carRequestDto){
-    carServiceimpl.update(id,carRequestDto);
+  public void update(@PathVariable Long id, @RequestBody CarRequestDto carRequestDto) {
+    carService.update(id, carRequestDto);
   }
+
   @DeleteMapping("/{id}")
-  public void delete(@PathVariable Long id){
-    carServiceimpl.delete(id);
+  public void delete(@PathVariable Long id) {
+    carService.delete(id);
   }
 }

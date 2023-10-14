@@ -1,10 +1,9 @@
 package az.ingress.carapp.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.*;
-
 import lombok.Data;
-
 
 import java.time.LocalDate;
 
@@ -26,5 +25,4 @@ public class Car {
 
     @JsonFormat(pattern = "dd.MM.yyyy")
     private LocalDate year;
-
 }
